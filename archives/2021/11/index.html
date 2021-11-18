@@ -221,18 +221,50 @@
         </div>
     </div>
 
-    <footer class="footer">
+    <link rel="stylesheet" href="/dragon.css">
+
+
+<footer class="footer">
     <!-- <div class="footer-wave">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#f0f3f6" fill-opacity="1" d="M0,160L60,181.3C120,203,240,245,360,240C480,235,600,181,720,186.7C840,192,960,256,1080,261.3C1200,267,1320,213,1380,186.7L1440,160L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg>
     </div> -->
 
-    <div style="background:rgba(0, 0, 0, 0)" class="footer-wrap">
+    <!-- <div style="background:rgba(0, 0, 0, 0)" class="footer-wrap">
         <div class="footer-inner" style="color:#4a5c6d"> 
             Hexo &copy; 2021<br>
             Powered By Hexo · Theme By <a style="color:#4a5c6d" href="https://github.com/lh1me/hexo-theme-aomori" target="_blank">Aomori</a>
+            <img src="images/404-page.png">1</img>
         </div>
-    </div>
-
+    </div> -->
+    <script type="text/javascript">
+        function fadeOutElement() {
+          document.getElementById('pleasantly').style.display = 'none';
+        }
+      </script>
+    <script src="dragon.js"></script>
+    <body id="t" class="offline">
+        <div class="NotFound_div">
+          <div class="Not-Found-game">
+            <!-- <h1 class="web" >404 NOT FOUND!</h1>
+            <h1 class="mobile">404</h1> -->
+            <span id="pleasantly"></span>
+          </div>
+          <!-- <p>三体人干扰我们的服务，没找到您要的内容！GDers正在努力对抗智子的科技封锁，<a href="/joinus/">加入吧......</a></p>
+          <p><a href="/">去首页看看...</a></p> -->
+        </div>
+      
+        <div id="main-frame-error" class="interstitial-wrapper">
+          <div id="main-content">
+            <div class="icon icon-offline" alt=""></div>
+          </div>
+          <div id="offline-resources" style="display: none;">
+            <img id="offline-resources-1x" src="assets/default_100_percent/100-offline-sprite.png">
+            <img id="offline-resources-2x" src="assets/default_200_percent/200-offline-sprite.png">
+            <template id="audio-resources">
+            </template>
+          </div>
+        </div>
+    </body>
 </footer>
 
 
@@ -244,6 +276,8 @@
 
 
 <script src="/dist/custom.js?1633679241878.js"></script>
+
+
 
 
 
