@@ -46,6 +46,10 @@
 <body>
     <!-- <script type="text/javascript" src="https://cdn.bootcss.com/canvas-nest.js/1.0.1/canvas-nest.min.js" opacity= 0.6>
     </script> -->
+    <!-- <script src="//itggg.cn/cdn/bangbangt.js"></script> -->
+    <!-- <div class="one" style="bottom: 0px; background-image: url(svg/mountains-1.svg);
+    z-index: 4;"></div> -->
+
     <div class="container">
     <header class="header">
         <div class="header-type">
@@ -279,14 +283,26 @@
         </div>
     </div>
 
-    <link rel="stylesheet" href="/dragon.css">
+    <!-- <link rel="stylesheet" href="/dragon.css"> -->
 
-
+<link rel="stylesheet" type="text/css" href="wave.css">
 <footer class="footer">
     <!-- <div class="footer-wave">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#f0f3f6" fill-opacity="1" d="M0,160L60,181.3C120,203,240,245,360,240C480,235,600,181,720,186.7C840,192,960,256,1080,261.3C1200,267,1320,213,1380,186.7L1440,160L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg>
     </div> -->
-
+    <div id="wavesDIV" style="display: block;">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+          <defs>
+              <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"></path>
+          </defs>
+          <g class="parallax">
+              <use xlink:href="#gentle-wave" x="48" y="-2" fill="rgba(125,165,191,0.3)"></use>
+              <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(125,165,191,0.5)"></use>
+              <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(125,165,191,0.7)"></use>
+              <use xlink:href="#gentle-wave" x="48" y="12" fill="rgba(125,165,191,1)"></use>
+          </g>
+      </svg>
+  </div>
     <!-- <div style="background:rgba(0, 0, 0, 0)" class="footer-wrap">
         <div class="footer-inner" style="color:#4a5c6d"> 
             Hexo &copy; 2021<br>
@@ -294,7 +310,7 @@
             <img src="images/404-page.png">1</img>
         </div>
     </div> -->
-    <script type="text/javascript">
+    <!-- <script type="text/javascript">
         function fadeOutElement() {
           document.getElementById('pleasantly').style.display = 'none';
         }
@@ -302,16 +318,14 @@
     <script src="dragon.js"></script>
     <body id="t" class="offline">
         <div class="NotFound_div">
-          <div class="Not-Found-game">
+          <div class="Not-Found-game"> -->
             <!-- <h1 class="web" >404 NOT FOUND!</h1>
             <h1 class="mobile">404</h1> -->
-            <span id="pleasantly"></span>
+            <!-- <span id="pleasantly"></span>
           </div>
-          <!-- <p>三体人干扰我们的服务，没找到您要的内容！GDers正在努力对抗智子的科技封锁，<a href="/joinus/">加入吧......</a></p>
-          <p><a href="/">去首页看看...</a></p> -->
         </div>
-      
-        <div id="main-frame-error" class="interstitial-wrapper">
+       -->
+        <!-- <div id="main-frame-error" class="interstitial-wrapper">
           <div id="main-content">
             <div class="icon icon-offline" alt=""></div>
           </div>
@@ -322,7 +336,7 @@
             </template>
           </div>
         </div>
-    </body>
+    </body> -->
 </footer>
 
 
