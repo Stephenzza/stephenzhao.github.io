@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     
-    <title>test_my_site | Hexo</title>
+    <title>用rand5构造rand7 | Hexo</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
     
@@ -114,7 +114,7 @@
             <section class="inner">
                 <section class="inner-main">
                     <div class="post">
-    <article id="post-ckw4dr9tr0004w4vldl1fgnz3" class="article article-type-post" itemscope
+    <article id="post-ckwa1j3oe00007kvl9xv3aat5" class="article article-type-post" itemscope
     itemprop="blogPost">
 
     <div class="article-inner">
@@ -130,7 +130,7 @@
             
   
     <h1 class="article-title" itemprop="name">
-      test_my_site
+      用rand5构造rand7
     </h1>
   
 
@@ -140,7 +140,7 @@
         <div class="article-more-info article-more-info-post hairline">
 
             <div class="article-date">
-  <time datetime="2021-11-17T06:28:36.000Z" itemprop="datePublished">2021-11-17</time>
+  <time datetime="2021-11-17T08:21:59.000Z" itemprop="datePublished">2021-11-17</time>
 </div>
 
             
@@ -152,7 +152,29 @@
         </div>
 
         <div class="article-entry post-inner-html hairline" itemprop="articleBody">
-            
+            <h3 id="较大的随机数构造较小的随机数"><a href="#较大的随机数构造较小的随机数" class="headerlink" title="较大的随机数构造较小的随机数"></a>较大的随机数构造较小的随机数</h3><p>考虑用rand7如何构造rand5, 容易想到使用while循环</p>
+<pre><code class="python">x = rand7()
+while x &gt; 5:
+    x = rand7()
+</code></pre>
+<p>来判断一下是否符合均匀分布,由于rand7()为均匀分布，即等概率$\frac{1}{7}$生成1~7的整数，假设rand5()得到1时有如下概率：  </p>
+<p>$<br>\begin{aligned}<br>p(x=1)&amp;=\frac{1}{7}+\frac{2}{7}·\frac{1}{7}+(\frac{2}{7})^2·\frac{1}{7}+···+(\frac{2}{7})^{n-1}·\frac{1}{7}\&amp;=<br>\frac{1}{7}(1+\frac{2}{7}+(\frac{2}{7})^2+···+(\frac{2}{7})^{n-1})<br>\end{aligned}<br>$</p>
+<p>其中$\frac{1}{7}$代表选的数属于1<del>5,$\frac{2}{7}$代表选的数为6</del>7，因此平方代表前两次都没选到，以此类推。化简得：</p>
+<p>$S_{\infty}=\frac{a_1}{1-q}(|q|&lt;1)=\frac{\frac{1}{7}}{1-\frac{2}{7}}=\frac{1}{7}·\frac{7}{5}=\frac{1}{5}$</p>
+<p>因此符合均匀分布，那么我们只要有任意一个大于想要构造随机数的随机生成器即可</p>
+<h3 id="较小的随机数构造较大的随机数"><a href="#较小的随机数构造较大的随机数" class="headerlink" title="较小的随机数构造较大的随机数"></a>较小的随机数构造较大的随机数</h3><p>接下来我们考虑如何把小的随机数生成器生成较大的数，前提是构造的较大数生成器同样符合均匀分布，以rand5为例，如何构造一个生成比5大的随机数并且符合均匀分布呢？首先乘法可以，例如5*rand5,生成(5,10,15,20,25),我们发现这是个离散的，间隔为5，那我们如果再用加法呢？5*rand5+rand5,对于5又加了5个数，10也加了5个数…以此类推，但是我们发现有重复选取，例如5+5和10，这不是均匀分布了，但是如果我们错开一位，让加法得到的数正好比随机选取小，则可以构造成功。因此最后的构造器为5*(rand5-1)+rand5,生成均匀分布1~25</p>
+<h3 id="rand5构造rand7"><a href="#rand5构造rand7" class="headerlink" title="rand5构造rand7"></a>rand5构造rand7</h3><pre><code class="python">def rand7():
+    x1 = rand5()
+    x2 = rand5()
+    x = 5*(x1-1)+x2
+    while x&gt;7:
+        x1 = rand5()
+        x2 = rand5()
+        x = 5*(x1-1)+x2
+    return x
+</code></pre>
+<p>但如过再leetcode会超时，因为大于7的部分太多。我们考虑用倍数的方式使循环的判读次数平均下来，</p>
+
         </div>
 
     </div>
@@ -191,15 +213,15 @@
     <section class="share">
         <div class="share-title">分享</div>
         <a class="share-item" target="_blank"
-            href="https://twitter.com/share?text=test_my_site - Hexo&url=http://example.com/2021/11/17/test-my-site/">
+            href="https://twitter.com/share?text=用rand5构造rand7 - Hexo&url=http://example.com/2021/11/17/%E7%94%A8rand5%E6%9E%84%E9%80%A0rand7/">
             <box-icon type='logo' name='twitter'></box-icon>
         </a>
         <a class="share-item" target="_blank"
-            href="https://www.facebook.com/sharer.php?title=test_my_site - Hexo&u=http://example.com/2021/11/17/test-my-site/">
+            href="https://www.facebook.com/sharer.php?title=用rand5构造rand7 - Hexo&u=http://example.com/2021/11/17/%E7%94%A8rand5%E6%9E%84%E9%80%A0rand7/">
             <box-icon name='facebook-square' type='logo' ></box-icon>
         </a>
         <!-- <a class="share-item" target="_blank"
-            href="https://service.weibo.com/share/share.php?title=test_my_site - Hexo&url=http://example.com/2021/11/17/test-my-site/&pic=">
+            href="https://service.weibo.com/share/share.php?title=用rand5构造rand7 - Hexo&url=http://example.com/2021/11/17/%E7%94%A8rand5%E6%9E%84%E9%80%A0rand7/&pic=">
             <div class="n-icon n-icon-weibo"></div>
         </a> -->
     </section>
@@ -253,7 +275,7 @@
           </li>
         
           <li>
-            <a href="/2021/11/17/test-my-site/">test_my_site</a>
+            <a href="/2021/11/17/%E7%94%A8rand5%E6%9E%84%E9%80%A0rand7/">用rand5构造rand7</a>
           </li>
         
           <li>
